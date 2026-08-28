@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy policy — DashKeep for Jira</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <p class="muted"><a href="index.html">DashKeep for Jira</a></p>
+      <h1>Privacy policy</h1>
+      <p class="muted">Last updated: 2026-08-28 · Contact: <a href="mailto:luka911a@gmail.com">luka911a@gmail.com</a></p>
+    </header>
+    <main>
+      <p>DashKeep is a Jira Cloud app (Atlassian Forge). It is provided by Vladimir Lukashov (individual).</p>
+      <h2>What the app does</h2>
+      <p>DashKeep adds two Jira dashboard gadgets: a note, and a count of Jira work items matching a JQL query you configure.</p>
+      <h2>Data we access</h2>
+      <ul>
+        <li><strong>Gadget configuration</strong> (note text, JQL, optional caption, refresh interval) is stored by Jira as dashboard gadget configuration. We do not copy it to our own servers.</li>
+        <li><strong>Work item counts</strong> are requested from Jira as the user who is viewing the dashboard (<code>read:jira-work</code>). We receive a number, not issue summaries, for the count display. Clicking through opens Jira’s own issue navigator.</li>
+      </ul>
+      <h2>Data we do not collect</h2>
+      <ul>
+        <li>We do not have a separate database.</li>
+        <li>We do not sell data.</li>
+        <li>We do not use the note or JQL for advertising.</li>
+        <li>We do not require an account on a third-party site.</li>
+        <li>We do not send End-User Data to vendor-owned servers or third-party subprocessors.</li>
+      </ul>
+      <h2>Where data lives</h2>
+      <p>Configuration and Jira API responses stay in Atlassian Cloud (Forge / Jira). The app is designed to run on Atlassian infrastructure without calling vendor-owned backends. In-scope data therefore follows Atlassian data residency for Jira Cloud / Forge.</p>
+      <h2>Logs</h2>
+      <p>We do not write End-User Data (note text, JQL, issue contents) to our own logs. Forge platform logs are processed by Atlassian.</p>
+      <h2>After uninstall</h2>
+      <p>When the app is uninstalled, gadget configuration remains only as Jira dashboard gadget storage on that site, under the site admin’s control. We retain no copy.</p>
+      <h2>Contact</h2>
+      <p>Privacy questions: <a href="mailto:luka911a@gmail.com">luka911a@gmail.com</a></p>
+    </main>
+  </body>
+</html>
