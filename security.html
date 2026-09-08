@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Security — DashKeep for Jira</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <p class="muted"><a href="index.html">DashKeep for Jira</a></p>
+      <h1>Security</h1>
+      <p class="muted">Last updated: 2026-09-08 · Contact: <a href="mailto:support@vovaluka.com">support@vovaluka.com</a></p>
+    </header>
+    <main>
+      <p>
+        DashKeep for Jira is a Forge app with two dashboard gadgets (Note and Count).
+        This page describes security practices. The privacy policy is a separate document:
+        <a href="privacy.html">privacy.html</a>.
+      </p>
+
+      <h2>Architecture</h2>
+      <p>
+        The app runs on Atlassian Forge (Runs on Atlassian). There are no Forge remotes, no vendor-owned
+        backends, and no egress of End-User Data to vendor servers or third-party subprocessors.
+        Count calls Jira as the viewing user via <code>forgeApi.asUser().requestJira</code>.
+        The app does not use <code>asApp()</code>, web triggers, or personal access tokens.
+      </p>
+
+      <h2>Data handling</h2>
+      <ul>
+        <li>Note text, optional caption, refresh interval, and Count JQL are stored as Jira dashboard gadget configuration.</li>
+        <li>Count requests an approximate work-item total for that JQL. The gadget displays a number, not issue summaries.</li>
+        <li>Clicking the count opens Jira’s issue navigator with the same query.</li>
+        <li>There is no vendor database. After uninstall we retain no copy of gadget configuration.</li>
+      </ul>
+
+      <h2>Access control</h2>
+      <p>
+        The only declared scope is <code>read:jira-work</code>, used to count work items the viewer can already see.
+        Jira session and site permissions apply. There is no separate DashKeep login.
+      </p>
+
+      <h2>Input handling</h2>
+      <p>
+        Note body is capped at 8000 characters. JQL is trimmed, HTML-decoded, and capped at 2000 characters.
+        The note is shown as text. Count sends that JQL to Jira as the viewing user; Jira parses it.
+      </p>
+
+      <h2>Encryption</h2>
+      <p>
+        Data in transit and at rest is handled by Atlassian Cloud / Forge.
+        We do not store End-User Data on vendor machines, so there is no separate vendor datastore to encrypt.
+      </p>
+
+      <h2>Logging</h2>
+      <p>
+        We do not write End-User Data (note text, JQL, issue contents) to vendor logs.
+        Forge platform logs are processed by Atlassian.
+      </p>
+
+      <h2>Vulnerability management</h2>
+      <p>
+        Production dependencies are reviewed with <code>npm audit --omit=dev</code> before Marketplace versions.
+        We do not run a public bug-bounty program and we do not claim SOC 2, ISO 27001, or similar certifications.
+      </p>
+
+      <h2>Report a vulnerability</h2>
+      <p>
+        Email <a href="mailto:support@vovaluka.com">support@vovaluka.com</a> with <strong>SECURITY</strong> in the subject.
+        Do not attach secrets or customer data in a public Marketplace review.
+      </p>
+    </main>
+  </body>
+</html>
