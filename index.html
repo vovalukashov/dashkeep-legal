@@ -3,30 +3,182 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>DashKeep for Jira</title>
+    <title>How to use DashKeep for Jira</title>
+    <meta
+      name="description"
+      content="Install DashKeep, add the Note and Count gadgets, keep a dashboard message after reload, and show a JQL count on wallboard."
+    />
+    <link rel="icon" href="logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <p class="muted">DashKeep for Jira</p>
-      <h1>Dashboard notes and counts that stay.</h1>
-      <p>Two Jira Cloud gadgets: a note, and a JQL work-item count. Built on Atlassian Forge.</p>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-bar">
+      <a class="brand" href="index.html">
+        <img src="logo.png" width="36" height="36" alt="" />
+        <span class="brand-text">
+          DashKeep for Jira
+          <span class="bars" aria-hidden="true"><i class="bar-note"></i><i class="bar-count"></i></span>
+        </span>
+      </a>
       <nav>
+        <a href="index.html" aria-current="page">How to</a>
         <a href="privacy.html">Privacy</a>
         <a href="security.html">Security</a>
         <a href="support.html">Support</a>
         <a href="terms.html">Terms</a>
       </nav>
     </header>
-    <main>
-      <h2>What it is</h2>
-      <ul>
-        <li><strong>Note</strong> — a dashboard message that survives reload and wallboard.</li>
-        <li><strong>Count</strong> — how many work items match a JQL query; click opens the list.</li>
-      </ul>
-      <h2>Install</h2>
-      <p>Install from the Atlassian Marketplace listing for DashKeep for Jira. Billing is through Atlassian.</p>
+
+    <main id="main">
+      <section class="hero">
+        <h1>A note and a count<br />that stay on the board.</h1>
+        <p class="lede">
+          Two Jira Cloud gadgets. Type a message, or point Count at JQL. Reload and wallboard keep them.
+        </p>
+        <p class="actions">
+          <a
+            class="btn btn-primary"
+            href="https://marketplace.atlassian.com/apps/1078702206/dashkeep-for-jira"
+            >Get it on Marketplace</a
+          >
+          <a class="btn btn-ghost" href="mailto:support@vovaluka.com">Email support</a>
+        </p>
+        <figure class="shot hero-shot">
+          <picture>
+            <source type="image/webp" srcset="shots/gadgets.webp" />
+            <img
+              src="shots/gadgets.jpg"
+              width="1498"
+              height="376"
+              alt="DashKeep Note and Count gadgets on a Jira dashboard. Note reads Standup 09:30, blockers in Slack. Count shows 59 for created greater than or equal to minus 365 days."
+            />
+          </picture>
+          <figcaption>
+            After reload. Titles are Note and Count, not DEVELOPMENT. Orange bar is Note; blue bar is Count.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="how">
+        <h2>Put them on a dashboard</h2>
+        <ol class="steps">
+          <li class="step" style="--i: 0">
+            <span class="n" aria-hidden="true">1</span>
+            <div>
+              <h3>Install and start the trial</h3>
+              <p>
+                Open the Marketplace listing for DashKeep for Jira and install it on your Jira Cloud site.
+                In Manage apps, start the trial. Sites with 10 users or fewer stay on the free tier. Billing is through Atlassian.
+              </p>
+            </div>
+          </li>
+          <li class="step" style="--i: 1">
+            <span class="n" aria-hidden="true">2</span>
+            <div>
+              <h3>Add Note or Count</h3>
+              <p>
+                Open a dashboard. Choose Edit. Add gadget. Search for DashKeep. Add <strong>Note</strong> or
+                <strong>Count</strong>. Production titles are those two words. Skip anything labeled DEVELOPMENT.
+              </p>
+            </div>
+          </li>
+          <li class="step" style="--i: 2">
+            <span class="n" aria-hidden="true">3</span>
+            <div>
+              <h3>Write a note, then reload</h3>
+              <p>
+                In Note, type a standup, an SLA reminder, or a wallboard message. Save. Reload the dashboard.
+                The text is still there because Jira stores it as gadget configuration.
+              </p>
+              <figure class="shot">
+                <picture>
+                  <source type="image/webp" srcset="shots/dashboard.webp" />
+                  <img
+                    src="shots/dashboard.jpg"
+                    width="1840"
+                    height="790"
+                    loading="lazy"
+                    alt="Jira Team dashboard after reload, with Note on the left and Count on the right."
+                  />
+                </picture>
+                <figcaption>Same dashboard, same text, after a reload.</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li class="step" style="--i: 3">
+            <span class="n" aria-hidden="true">4</span>
+            <div>
+              <h3>Count work items, then open the list</h3>
+              <p>
+                In Count, set a JQL query. A bounded example: <code>created &gt;= -365d</code>. Save.
+                The gadget shows how many work items match. Click the number to open that list in Jira’s issue navigator.
+              </p>
+              <figure class="shot">
+                <picture>
+                  <source type="image/webp" srcset="shots/navigator.webp" />
+                  <img
+                    src="shots/navigator.jpg"
+                    width="1840"
+                    height="900"
+                    loading="lazy"
+                    alt="Jira issue navigator filtered to work items created in the last 365 days, opened from the Count gadget."
+                  />
+                </picture>
+                <figcaption>Click the count. Same query, Jira’s own list.</figcaption>
+              </figure>
+            </div>
+          </li>
+          <li class="step" style="--i: 4">
+            <span class="n" aria-hidden="true">5</span>
+            <div>
+              <h3>View as wallboard</h3>
+              <p>
+                Use View as wallboard when you want TV-size type. Give Note and Count different gadget highlight colors if both should stay on screen.
+                Use the same color if you want them to rotate.
+              </p>
+              <figure class="shot">
+                <picture>
+                  <source type="image/webp" srcset="shots/wallboard.webp" />
+                  <img
+                    src="shots/wallboard.jpg"
+                    width="1760"
+                    height="260"
+                    loading="lazy"
+                    alt="Wallboard view with the Note and Count gadgets side by side. Note shows the standup line; Count shows 59."
+                  />
+                </picture>
+                <figcaption>Different highlight colors keep both tiles on one wallboard.</figcaption>
+              </figure>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="limits">
+        <div class="limits-inner">
+          <h2>What this is not</h2>
+          <p>
+            DashKeep is not a chart builder. It does not replace eazyBI, Rich Filters, or sprint reports.
+          </p>
+          <ul>
+            <li>Counts run as the viewing user (<code>read:jira-work</code>).</li>
+            <li>Note text and JQL live in Jira gadget storage. There is no vendor database.</li>
+            <li>The app runs on Atlassian Forge. No remotes, no egress to vendor servers.</li>
+          </ul>
+        </div>
+      </section>
     </main>
-    <footer>Vladimir Lukashov · support@vovaluka.com</footer>
+
+    <footer class="site-foot">
+      <span>Vladimir Lukashov, an individual</span>
+      <a href="mailto:support@vovaluka.com">support@vovaluka.com</a>
+    </footer>
   </body>
 </html>
